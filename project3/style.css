@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    background-size: 30%;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+}
+/* style untuk navigasi */
+.nav-bar ul{
+    margin: 0px;
+	padding: 5px;
+	background: none;
+	display: block;
+}
+.login{
+    float: right;
+}
+.nav-bar ul li{
+    list-style: none;
+	display: inline-block;
+}
+.nav-bar ul li a{
+    display: block;
+	text-decoration: none;
+	padding: 20px;
+	color: #ddd;
+}
+.nav-bar ul li a:hover {
+	display: block;
+	color: rgb(236, 116, 3);
+	background: #222;
+	box-shadow: inset 0px 0px 5px #000;
+}
+.nav-bar ul li .dropdown {
+	display: none;
+}
+.nav-bar ul li:hover .dropdown{
+	display: block;
+	background: black;
+	position: absolute;
+	padding: 10px;
+}
+.nav-bar ul li:hover .dropdown li {
+	display: block;
+}
+.nav-bar ul li:hover .dropdown li a {
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 5px;
+}
+.nav-bar ul li .dropdown li a:hover {
+	padding: 10px;
+	border-radius: 5px;
+	margin: 5px;
+}
+
+/* header */
+.header img{
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 1250px;
+    height: 650px;
+}
+
+/* about */
+.row::after{
+    content: "";
+  display: table;
+  clear: both;
+}
+.about-esport, .founder, .sponsor-esport, .footer{
+    background-color: rgba(0, 0, 0, 0.788);
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.about-esport{
+    float: left;
+    width: 60%;
+    
+}
+h2,p{
+    color: rgb(255, 255, 255);
+} 
+
+.gambar-content{
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+    height: 250px;
+}
+
+/* founder, pak bos */
+.founder{
+    float: right;
+    width: 30%;
+}
+.fd-pak {
+    width: 40%;
+    height: 30%;
+    border-radius: 10px;
+}
+table{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #ddd;
+}
+th,td,tr{
+    padding: 10px;
+}
+
+/* sponsor */
+.sponsor-esport{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sponsor-esport img{
+    width: 900px;
+    padding: 0;
+    margin: 0;
+}
+
+/* footer */
+.footer li{
+    list-style: none;
+    float: right;
+    margin-right: 200px;
+}

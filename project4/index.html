@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+        <title>Tugas Modul 4</title>
+    </head>
+    <body>
+        <div class="judulHalaman">
+            <h2 class="judulUtama">Program Menghitung</h2>
+            <h1 class="judulDua">Modus, Mean, Max, Min</h1>
+        </div>
+        <div id="program" align="center">
+            <div>
+                <h4 class="judulTiga">Dari Data Berikut :</h4>
+                <textarea cols="45" rows="1" v-model="input" class="inputan" autofocus></textarea><br><br>
+                <input type=button value="Hitung" @click="hitung(this.form)" class="btn-right"><br><br><br>
+                <table>
+                    <tr>
+                        <th colspan="3" align="center">HASIL</th>   
+                    </tr>
+                    <tr>
+                        <td><strong>Modus</strong></td>
+                        <td style="padding-left: 0px;">:</td>
+                        <td><input type="text" v-model="modus" class="cal" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mean</strong></td>
+                        <td style="padding-left: 0px;">:</td>
+                        <td><input type="text" v-model="mean" class="cal" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Maximum</strong></td>
+                        <td style="padding-left: 0px;">:</td>
+                        <td><input type="text" v-model="maximum" class="cal" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Minimum</strong></td>
+                        <td style="padding-left: 0px;">:</td>
+                        <td><input type="text" v-model="minimum" class="cal" readonly></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; dvlBoo 2022</p>
+            <!-- diprogram secara mandiri dan otak-atik source code orang sampe powseng -->
+        </div>
+        <script>
+            // value
+            new Vue({
+                data(){
+                    return{
+                        input: '',
+                        mean: 0,
+                        modus: 0,
+                        minimum: 0,
+                        maximum: 0,
+                    }
+                },
+                // mengurutkan inputan data
+                methods:{
+                    urutanAngka(a, b) {
+                    return a - b;
+                    },
+                    // proses aritmatika hitung
+                    hitung(form) {
+                        var form = this
+                        var dataAngka = form.input;
+                        // peringatan ketika data null
+                        if (dataAngka == "") {
+                            alert("Mohon Input Angka");
+                            return;
+                        } 
+                        // mereplace data
+                        dataAngka = dataAngka.replace(" ", "");
+                        // membuat split koma
+                        var arr = dataAngka.split(",");
+                        // 
+                        var hasilTotal = 0;
+                        for (var kuh = 0; kuh < arr.length; kuh++) {
+                        arr[kuh] = parseFloat(arr[kuh]);
+                        hasilTotal += arr[kuh];
+                        }
+                        // method - method
+                        // 1. membuat method mean
+                        var mean = hasilTotal / arr.length;
+                        arr.sort(form.urutanAngka);
+                        // 2. membuat method modus
+                        var maxValue = 0;
+                        var maxCount = 0;
+                        var lastValue = "";
+                        for (var i = 0; i < arr.length; ++i) {
+                            if (lastValue == arr[i]) continue;
+                            lastValue = arr[i];
+                            var count = 0;
+                            for (var kuh = 0; kuh < arr.length; ++kuh) {
+                                if (arr[kuh] == arr[i]) ++count;
+                            }
+                            if (count > maxCount) {
+                                maxCount = count;
+                                maxValue = arr[i];
+                            } else if (count == maxCount) {
+                                maxValue += "," + arr[i];
+                            }
+                        }
+                        // 3. max
+                        var maximum = arr[arr.length - 1];
+                        // 4. min
+                        var minimum = arr[0];
+                        // output method
+                        form.modus = maxValue;
+                        form.mean = mean;
+                        form.maximum = maximum;
+                        form.minimum = minimum;
+                    }
+                }
+            }).$mount('#program')
+        </script>
+    </body>
+</html>
