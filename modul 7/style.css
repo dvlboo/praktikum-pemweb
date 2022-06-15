@@ -1,0 +1,39 @@
+body{
+    background-image: linear-gradient(#6d2800,#ffa600);
+}
+.home{
+    margin: 50px auto;
+    margin-top:150px;
+    width: max-content;
+}
+th {
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 2px;
+}
+
+table{
+    background-color:#00000091;
+    padding:20px;
+    border-radius:15px;
+    color: aliceblue;
+}
+td{
+    padding: 10px;
+    font-weight:bolder;
+    font-family: 'Poppins', sans-serif;
+}
+input, textarea{
+    font-family: 'Roboto Mono', monospace;
+    font-weight:bolder;
+    width:227px;
+    padding:5px;
+    border-radius:5px;
+}
+button{
+    padding: 20px;
+    border-radius:10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bolder;
+}
